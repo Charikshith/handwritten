@@ -43,4 +43,4 @@ Type `/handwritten <topic>`, or ask for handwritten notes, study notes or revisi
 
 Download a page and open it in a browser.
 
-Pulled from [Charikshith/Skills](https://github.com/Charikshith/Skills).
+Originally part of [Charikshith/Skills](https://github.com/Charikshith/Skills), now maintained here.
