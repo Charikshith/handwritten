@@ -55,6 +55,7 @@ use its classes:
 | Two columns | `<div class="cols"><div>…</div><div>…</div></div>` |
 | Blank ruled line | `<div class="gap"></div>` |
 | Table | `<div class="wrap"><table>…</table></div>` |
+| Code block | `<pre class="code">…</pre>` with token spans `kw` (keyword), `st` (string), `nu` (number), `bi` (built-in), `fn` (function call), `cm` (comment) |
 
 Spacing rule: everything is sized in multiples of `--line` (32px) so writing sits on the
 ruled lines. Don't add custom margins/padding/font-sizes that break this grid.

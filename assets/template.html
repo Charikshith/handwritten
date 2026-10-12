@@ -94,6 +94,7 @@ ul>li.check::before{content:"✓";color:var(--green)}
 
 /* two-column notes */
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.cols>*{min-width:0}
 @media (max-width:600px){.cols{grid-template-columns:1fr}}
 
 /* diagrams */
@@ -112,6 +113,13 @@ figcaption{font-family:var(--title);font-size:20px;color:var(--ink2)}
 table{border-collapse:collapse;margin:calc(var(--line)*.5) 0;min-width:100%}
 th,td{border:2px solid var(--ink2);padding:0 10px;text-align:left;vertical-align:top}
 th{font-family:var(--title);font-size:24px;color:var(--ink2)}
+
+/* code block: syntax-coloured pen colours, still on the ruled-line grid */
+pre.code{font-family:Consolas,'Cascadia Mono','SFMono-Regular',Menlo,monospace;font-size:16px;line-height:var(--line);
+  margin:calc(var(--line)*.5) 0;padding:calc(var(--line)*.5 - 2px) 14px;border:2px solid var(--ink2);border-radius:4px 10px 6px 12px;
+  background:rgba(255,255,255,.55);color:var(--ink2);white-space:pre;overflow-x:auto;tab-size:4}
+pre.code .kw{color:#8e24aa;font-weight:700} pre.code .st{color:var(--green)} pre.code .nu{color:#d35400}
+pre.code .cm{color:#7f8c8d;font-style:italic} pre.code .fn{color:var(--ink)} pre.code .bi{color:#00838f}
 
 @media print{body{background:#fff}.page{box-shadow:none;margin:0}.page::before{display:none}}
 </style>
