@@ -36,4 +36,8 @@ Restart the agent session so it picks up the new skill. To update later, run `gi
 
 Type `/handwritten <topic>`, or ask for handwritten notes, study notes or revision notes. The skill writes a self-contained HTML page you can open in a browser.
 
+## Example
+
+[`examples/photosynthesis.html`](examples/photosynthesis.html) is a page made with `/handwritten photosynthesis`. Download it and open it in a browser.
+
 Pulled from [Charikshith/Skills](https://github.com/Charikshith/Skills).
