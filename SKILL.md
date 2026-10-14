@@ -12,7 +12,7 @@ exam-useful** — the handwriting look is the wrapper, the content is the point.
 
 ## Usage
 `/handwritten <topic>` — optional extras the user may add: level (class 10, undergrad, interview prep),
-length ("1 page", "detailed"), language, or "with diagrams". Defaults: one page, general
+length ("1 page", "detailed"), paper (`ruled` default, or `plain` for blank paper with no lines or margin), language, or "with diagrams". Defaults: one page, general
 student level, English, at least one diagram.
 
 If the user gives only `/handwritten` with no topic, ask for the topic in one short line.
@@ -34,6 +34,7 @@ Fact-check yourself: formulas, numbers, names and directions of arrows must be c
 Never invent statistics. If the topic is contested or uncertain, say so in a short note.
 
 ## Step 2 — Build the page from the template
+For `plain` paper, change `<main class="page">` to `<main class="page plain">`; nothing else changes.
 Copy `assets/template.html` (in this skill's folder) and fill it. Replace `{{TITLE}}`
 and `{{DATE}}`, and put content where `<!-- CONTENT GOES HERE -->` is. Do not rewrite the CSS;
 use its classes:
@@ -55,10 +56,10 @@ use its classes:
 | Two columns | `<div class="cols"><div>…</div><div>…</div></div>` |
 | Blank ruled line | `<div class="gap"></div>` |
 | Table | `<div class="wrap"><table>…</table></div>` |
-| Code block | `<pre class="code">…</pre>` with token spans `kw` (keyword), `st` (string), `nu` (number), `bi` (built-in), `fn` (function call), `cm` (comment) |
+| Code block | `<pre class="code">…</pre>` with token spans `kw` (keyword), `st` (string), `nu` (number), `bi` (built-in), `fn` (function call), `cm` (comment) — renders as a plain markdown-style block (opaque background, normal line height, no ruled rows); keep one snippet per `<pre>` with no blank-line padding and no `.gap` between its lines |
 
 Spacing rule: everything is sized in multiples of `--line` (32px) so writing sits on the
-ruled lines. Don't add custom margins/padding/font-sizes that break this grid.
+ruled lines. Don't add custom margins/padding/font-sizes that break this grid. Code blocks are the exception: they sit off the grid as plain blocks.
 
 ## Step 3 — Draw the diagram (hand-drawn SVG)
 ```html

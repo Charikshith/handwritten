@@ -46,12 +46,16 @@ body{margin:0;background:var(--desk);font-family:var(--hand);color:var(--ink);}
   content:""; position:absolute; left:22px; top:0; bottom:0; width:18px;
   background:radial-gradient(circle,var(--desk) 7px,transparent 8px) 0 40px/18px 220px repeat-y;
 }
+/* plain paper option: <main class="page plain"> drops the ruled lines, margin line and holes (spacing grid is kept) */
+.page.plain{background:var(--paper);padding-left:48px}
+.page.plain::before{display:none}
 @media (max-width:600px){
   .page{margin:0;padding-left:52px;padding-right:16px;font-size:18px;
     background:
       linear-gradient(90deg,transparent 40px,var(--margin) 40px,var(--margin) 42px,transparent 42px),
       repeating-linear-gradient(var(--paper) 0,var(--paper) calc(var(--line) - 1px),var(--rule) calc(var(--line) - 1px),var(--rule) var(--line));
     background-color:var(--paper);}
+  .page.plain{background:var(--paper);padding-left:16px}
   .page::before{left:10px;width:16px}
 }
 
@@ -114,12 +118,16 @@ table{border-collapse:collapse;margin:calc(var(--line)*.5) 0;min-width:100%}
 th,td{border:2px solid var(--ink2);padding:0 10px;text-align:left;vertical-align:top}
 th{font-family:var(--title);font-size:24px;color:var(--ink2)}
 
-/* code block: syntax-coloured pen colours, still on the ruled-line grid */
-pre.code{font-family:Consolas,'Cascadia Mono','SFMono-Regular',Menlo,monospace;font-size:16px;line-height:var(--line);
-  margin:calc(var(--line)*.5) 0;padding:calc(var(--line)*.5 - 2px) 14px;border:2px solid var(--ink2);border-radius:4px 10px 6px 12px;
-  background:rgba(255,255,255,.55);color:var(--ink2);white-space:pre;overflow-x:auto;tab-size:4}
-pre.code .kw{color:#8e24aa;font-weight:700} pre.code .st{color:var(--green)} pre.code .nu{color:#d35400}
-pre.code .cm{color:#7f8c8d;font-style:italic} pre.code .fn{color:var(--ink)} pre.code .bi{color:#00838f}
+/* code block: plain opaque markdown-style block (no ruled lines behind it), copyable as one piece */
+pre.code{font-family:Consolas,'Cascadia Mono','SFMono-Regular',Menlo,monospace;font-size:14px;line-height:1.5;
+  margin:var(--line) 0;padding:12px 16px;border:1px solid #d0d7de;border-radius:6px;
+  background:#f6f8fa;color:#1f2328;white-space:pre;overflow-x:auto;tab-size:4;position:relative;z-index:1}
+pre.code .kw{color:#cf222e} pre.code .st{color:#0a3069} pre.code .nu{color:#0550ae}
+pre.code .cm{color:#6e7781;font-style:italic} pre.code .fn{color:#8250df} pre.code .bi{color:#0550ae}
+@media (prefers-color-scheme:dark){
+  pre.code{background:#161b22;border-color:#30363d;color:#e6edf3}
+  pre.code .kw{color:#ff7b72} pre.code .st{color:#a5d6ff} pre.code .nu{color:#79c0ff}
+  pre.code .cm{color:#8b949e} pre.code .fn{color:#d2a8ff} pre.code .bi{color:#79c0ff}}
 
 @media print{body{background:#fff}.page{box-shadow:none;margin:0}.page::before{display:none}}
 </style>
@@ -140,7 +148,7 @@ pre.code .cm{color:#7f8c8d;font-style:italic} pre.code .fn{color:var(--ink)} pre
   </marker>
 </defs></svg>
 
-<main class="page">
+<main class="page">  <!-- use class="page plain" for plain paper (no ruled lines) -->
   <div class="date">{{DATE}}</div>
   <h1><span class="u">{{TITLE}}</span></h1>
   <!-- CONTENT GOES HERE -->
